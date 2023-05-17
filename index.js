@@ -9,8 +9,15 @@ inquirer
   .prompt([
     {
       type: "input",
-      message: "Enter your logo text: ",
+      message: "Enter your logo text (limit to 3 characters only): ",
       name: "logoText",
+      validate: function (input) {
+        if (input.length > 0 && input.length <= 3) {
+          return true;
+        } else {
+          return 'Please enter up to 3 characters for your logo text!';
+        }
+      },
     },
     {
       type: "input",
