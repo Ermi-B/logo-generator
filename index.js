@@ -12,6 +12,7 @@ inquirer
       message: "Enter your logo text (limit to 3 characters only): ",
       name: "logoText",
       validate: function (input) {
+        //validating that user inputs less than 3 characters
         if (input.length > 0 && input.length <= 3) {
           return true;
         } else {
