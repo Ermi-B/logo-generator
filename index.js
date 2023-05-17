@@ -24,6 +24,7 @@ inquirer
       type: "input",
       message: "what is your color choice? (Enter color keyword or hex code): ",
       name: "logoColor",
+      default:"green" //will be default if user didnt input any color
     },
     {
       type: "list",
@@ -39,15 +40,18 @@ inquirer
     //checking what shape is chosen and creating instance of the corresponding class and calling render( )
     switch(logoShape){
       case 'Triangle':
-        const triangle = new Triangle(logoText,logoColor,logoShape);
+        const triangle = new Triangle(logoText,logoShape);
+        triangle.setColor(logoColor)
         output = triangle.render()
         break;
       case 'Circle':
-        const circle = new Circle(logoText,logoColor,logoShape);
+        const circle = new Circle(logoText,logoShape);
+        circle.setColor(logoColor)
         output = circle.render()
         break;
       case 'Square':
-        const square = new Square(logoText,logoColor,logoShape);
+        const square = new Square(logoText,logoShape);
+        square.setColor(logoColor)
         output = square.render()
         break;
     }

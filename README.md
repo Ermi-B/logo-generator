@@ -13,7 +13,7 @@
 
 ## Credits
 - Developed by Ermiyas Bekele
-- Used npm packages like Inquirer andMDN Docs as a reference.
+- Used npm packages like Inquirer and MDN Docs as a reference.
 
 ## License
 - MIT License
