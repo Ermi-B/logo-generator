@@ -1,4 +1,0 @@
- <svg viewBox="0 0 200 100">
-    <circle cx="10" cy="10" r="10" fill="green"></circle>
-    <text x="6" y="11" font-size="6" fill="white">3ts</text>
-   </svg>
