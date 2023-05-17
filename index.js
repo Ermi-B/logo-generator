@@ -1,6 +1,9 @@
 const inquirer = require("inquirer");
+const fs = require("fs")
 const Circle = require("./lib/circle")
-const Shapes = require("./lib/shapes")
+const Shapes = require("./lib/shapes");
+const Triangle = require("./lib/triangle");
+const Square = require("./lib/square")
 inquirer
   .prompt([
     {
@@ -22,7 +25,26 @@ inquirer
   ])
   .then((data) => {
     //write logo.svg here
-    const shapes = new Shapes(data.logoText,data.logoColor,data.Shape)
-    console.log(shapes.render())
-    console.log("Generated logo.svg")
+    const { logoText,logoColor,logoShape } = data //destructuring the prompt answers
+    let output;
+    //checking what shape is chosen and creating instance of the corresponding class and calling render( )
+    switch(logoShape){
+      case 'Triangle':
+        const triangle = new Triangle(logoText,logoColor,logoShape);
+        output = triangle.render()
+        break;
+      case 'Circle':
+        const circle = new Circle(logoText,logoColor,logoShape);
+        output = circle.render()
+        break;
+      case 'Square':
+        const square = new Square(logoText,logoColor,logoShape);
+        output = square.render()
+        break;
+    }
+   //write output variable to file
+    fs.writeFile('./examples/logo.svg',output,(err)=>{
+      err?console.error(err):console.log("Generated logo.svg");
+    })
+    
 });
