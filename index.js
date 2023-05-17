@@ -40,17 +40,17 @@ inquirer
     //checking what shape is chosen and creating instance of the corresponding class and calling render( )
     switch(logoShape){
       case 'Triangle':
-        const triangle = new Triangle(logoText,logoShape);
+        const triangle = new Triangle(logoText);
         triangle.setColor(logoColor)
         output = triangle.render()
         break;
       case 'Circle':
-        const circle = new Circle(logoText,logoShape);
+        const circle = new Circle(logoText);
         circle.setColor(logoColor)
         output = circle.render()
         break;
       case 'Square':
-        const square = new Square(logoText,logoShape);
+        const square = new Square(logoText);
         square.setColor(logoColor)
         output = square.render()
         break;
