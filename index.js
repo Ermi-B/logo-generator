@@ -1,9 +1,10 @@
 const inquirer = require("inquirer");
 const fs = require("fs")
-const Circle = require("./lib/circle")
-const Shapes = require("./lib/shapes");
+
+const Circle = require("./lib/circle");
 const Triangle = require("./lib/triangle");
-const Square = require("./lib/square")
+const Square = require("./lib/square");
+
 inquirer
   .prompt([
     {
@@ -42,8 +43,9 @@ inquirer
         output = square.render()
         break;
     }
-   //write output variable to file
-    fs.writeFile('./examples/logo.svg',output,(err)=>{
+   //write output variable to file logo.svg
+   //it generates unique file name adding date and logo text on its file name
+    fs.appendFile(`./examples/logo_${logoText}_${Date.now()}.svg`,output,(err)=>{
       err?console.error(err):console.log("Generated logo.svg");
     })
     
